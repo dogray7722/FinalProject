@@ -11,18 +11,22 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills float-right">
+
+           {{#if user}}
             <li class="nav-item">
-              <a class="nav-link active" href="/">Dashboard <span class="sr-only">(current)</span></a>
+              <a class="nav-link active" href="/">Dashboard</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/users/logout">LogOut</a>
+            </li>
+           {{else}}
+			<li class="nav-item">
               <a class="nav-link" href="/users/login">Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/users/register">Register</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/users/logout">LogOut</a>
-            </li>
+           {{/if}}
           </ul>
         </nav>
         <h3 class="text-muted">Login App</h3>
@@ -31,9 +35,21 @@
 
       <div class="row">
         <div class="col-lg-12">
+        	{{#if success_msg}}
+        		<div class="alert alert-success">{{success_msg}}</div>
+        	{{/if}}
+			
+			{{#if error_msg}}
+        		<div class="alert alert-success">{{error_msg}}</div>
+        	{{/if}}
+
+			{{#if error}}
+        		<div class="alert alert-success">{{error}}</div>
+        	{{/if}}
+
 			{{{body}}}
         </div>
-
+       </div>
 
       <footer class="footer">
         <p>&copy; Login App 2017</p>
